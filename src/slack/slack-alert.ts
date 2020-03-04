@@ -392,7 +392,7 @@ export function getScreenshotLinks(
       screenshots.forEach(screenshotObject => {
         const trimmedScreenshotFilename = path
           .basename(screenshotObject)
-          .replace(/\(/g, "%28")
+          .replace("(", "%28")
           .replace(")", "%29");
         return (screenshotAttachmentsSlack = `<${screenshotURL}${screenshotObject}|Screenshot:- ${trimmedScreenshotFilename}>\n${screenshotAttachmentsSlack}`);
       });
