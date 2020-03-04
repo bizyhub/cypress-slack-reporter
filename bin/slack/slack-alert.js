@@ -353,7 +353,7 @@ function getScreenshotLinks(_artefactUrl, _screenshotDir) {
         else {
             screenshots.forEach(function (screenshotObject) {
                 var trimmedScreenshotFilename = path.basename(screenshotObject);
-                screenshotObject = screenshotObject.replace("(", "%28").replace(")", "%29");
+                screenshotObject = screenshotObject.replace(/\(/g, "%28").replace(/\)/g, "%29");
                 return (screenshotAttachmentsSlack = "<" + screenshotURL_1 + screenshotObject + "|Screenshot:- " + trimmedScreenshotFilename + ">\n" + screenshotAttachmentsSlack);
             });
         }
