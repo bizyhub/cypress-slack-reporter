@@ -390,10 +390,9 @@ export function getScreenshotLinks(
       return (screenshotAttachmentsSlack = "");
     } else {
       screenshots.forEach(screenshotObject => {
-        const trimmedScreenshotFilename = path.basename(screenshotObject);
-        return (screenshotAttachmentsSlack = `<${screenshotURL}${screenshotObject}|Screenshot:- ${trimmedScreenshotFilename}>\n${screenshotAttachmentsSlack}`)
-          .replace("(", "%28")
-          .replace(")", "%29");
+        const trimmedScreenshotFilename = path.basename(screenshotObject)
+        screenshotObject = screenshotObject.replace("(", "%28").replace(")", "%29");
+        return (screenshotAttachmentsSlack = `<${screenshotURL}${screenshotObject}|Screenshot:- ${trimmedScreenshotFilename}>\n${screenshotAttachmentsSlack}`);
       });
     }
   }
